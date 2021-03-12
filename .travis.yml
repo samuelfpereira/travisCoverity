@@ -9,7 +9,7 @@ env:
 addons:
   coverity_scan:
     project:
-      name: LeFlou/Citadel
+      name: samuelfpereira/travisCoverity
     build_command_prepend: "cmake ."
     build_command: "make"
     branch_pattern: coverity_scan
