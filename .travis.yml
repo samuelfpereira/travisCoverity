@@ -78,9 +78,9 @@ matrix:
           name: "samuelfpereira/travisCoverity"
           description: "A simple example of how to setup a complete CI environment for C and C++"
         notification_email: bruno.vilaca.sa@gmail.com
-        build_command_prepend: "cmake ."
+        build_command_prepend: "cmake -DCMAKE_CXX_COMPILER=g++-6 .."
         build_command: "make"
-        branch_pattern: coverity_scan
+        branch_pattern: master
       apt:
         sources:
           - ubuntu-toolchain-r-test
