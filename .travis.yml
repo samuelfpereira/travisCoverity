@@ -1,4 +1,4 @@
-language: c
+language: C
 compiler: gcc
 #
 # Tokens
@@ -25,5 +25,4 @@ addons:
     build_command_prepend: ""
     build_command: "gcc -o main main.c"
     branch_pattern: cov
-  script:
-    - make
+  script: make && make test
