@@ -25,4 +25,4 @@ addons:
     build_command_prepend: ""
     build_command: "gcc -o main main.c"
     branch_pattern: cov
-  script: make && make test
+    script: make
