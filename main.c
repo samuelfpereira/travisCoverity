@@ -2,7 +2,7 @@
 
 int main(void)
 {
-  int arr[5];
-  arr[9]=333;
+  char buffer[20];
+  buffer[50]='a';
   return 0;
 }
