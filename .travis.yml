@@ -1,10 +1,10 @@
-language: c
+language: cpp
 os: Linux
 compiler: gcc
 
 env:
   global:
-   - secure: "VLAvAt1i62Wu7kK7o0oGf88lxrbgrdj8a8nFtODgtNNMZ0xsZ+LvHwOwwPNT5HUIK0udt+7LihSsbCAeVMeOahYRUcAOC4LkT+m3yIK1tEl3syNYp9I+rtTeGUBdZQpUIfXYVoyhUcDxVOGVK2aDehr8c4clI1Bmr/oKaSoe7sg="
+   - secure: "LGpgx787uvLeSdaPfu8qMQQIhsVFD7alvyYuQNrVmGG8I0RGvOAdd1BzXv7Y3aCV9ckCQ8lVCw9wMWP/wcceXFnvAezbgVObkm7YUwNairsJR+3LPI+80B4XxCgYT0V29Ak3YlEXxwBpWSG1US/l+yUxn1qcr3DGRCku4ghDh/g="
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
@@ -14,7 +14,9 @@ addons:
     project:
       name: "samuelfpereira/travisCoverity"
       description: "coverity"
-    notification_email: pereiracltd@gmail.com
+    notification_email: a81408@alunos.uminho.pt
     build_command_prepend:
-    build_command: "gcc -o main main.c"
+    build_command: make
     branch_pattern: coverity_scan
+script:
+  -gcc -o main main.c
