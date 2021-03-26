@@ -4,16 +4,19 @@ compiler: gcc
 
 env:
   global:
-   secure: "Q3d/ZO1j4yxn6Fl4mER0oldJmYlbMLW1IFonNTDA/rYzOAvVihiq5T3FwQpK2Yzvujg4aXa3nj3bbyYMpDObcxiovDreirZ0KckOgMyUawwNkAAEp2QNsWQCW6LhU1rbCwj85PgSDABbcenoJ7WOP5yv7J+gOsawMElMdnEQgc1MXVTX5qCKBxvm5SCVh6gdIbbs3HfBQWR1nNJU7K4x5oGDX6yAtyj28ja8OCDX/qSVjXem6jGKoOnFm6h11Uc5QEEpqSU8NJFJoOUqQo4zhDcHjVCS/hKKp9GsYolNaotDqkKAFk7XPLQybmlx/TLDUprLHuXLL1lZpm9LnSFyhcWrwQzwytlFUpQM5/quv74IU/6wvSCUVdRKPi4wFdV374PruXyzmTfwtfzrQwNBHOG4BhqF1y/dyW5oVesR3W5gD/2oSmutk6OeR32XSZpRH4iJLi9KKlELXwivhkuZ4GSmU09/cMlrs6BXxazWcdKG58kyKf1v0XgGGraAInCOD1FxA3iWRiKVQYcNUAPIdNqXgP1WpfSYKPcoOGv2ONi2+Nmz1FK9wn8hH1T41xFzmJt21jw9csPldRTT7NygDRffnHqSuEkv9z5K2tSX4IpgwiDbh1CSscaEWIJqGVLp2bUkSpBa/ag+e7wqFyPab3P8NNJPwRQv5QAIYgulNHU="
+   - secure: "VLAvAt1i62Wu7kK7o0oGf88lxrbgrdj8a8nFtODgtNNMZ0xsZ+LvHwOwwPNT5HUIK0udt+7LihSsbCAeVMeOahYRUcAOC4LkT+m3yIK1tEl3syNYp9I+rtTeGUBdZQpUIfXYVoyhUcDxVOGVK2aDehr8c4clI1Bmr/oKaSoe7sg="
+
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
 addons:
   coverity_scan:
     project:
       name: "samuelfpereira/travisCoverity"
-      description: "coverity"
-    notification_email: a81408@alunos.uminho.pt
-    build_command_prepend:
-    build_command: make
-    branch_pattern: cov
+      description: "<Your project description here>"
+    notification_email: pereiracltd@gmail.com
+    build_command_prepend: "<Your build preprocessing command here>"
+    build_command: "<Your build command here>"
+    branch_pattern: coverity_scan
+  
   script: gcc -o main main.c
