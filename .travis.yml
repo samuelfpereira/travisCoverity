@@ -1,4 +1,4 @@
-language: cpp
+language: c
 os: Linux
 compiler: gcc
 
@@ -19,4 +19,4 @@ addons:
     build_command: make
     branch_pattern: coverity_scan
 script:
-  -gcc -o main main.c
+  -gcc main.c -o main
