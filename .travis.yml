@@ -22,6 +22,6 @@ addons:
     name: "samuelfpereira/travisCoverity"
     description: "test coverity"
     #notification_email: a81408@alunos.uminho.pt
-    build_command_prepend: ""
-    build_command: "gcc -o main main.c"
+    build_command_prepend:
+    build_command: gcc -o main main.c
     branch_pattern: cov
