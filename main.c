@@ -3,6 +3,6 @@
 int main(void)
 {
   int arr[5];
-  arr[0]=333;
+  arr[9]=333;
   return 0;
 }
