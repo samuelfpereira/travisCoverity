@@ -1,27 +1,20 @@
 language: C
+os: Linux
 compiler: gcc
-#
-# Tokens
-#
+
 env:
   global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
    secure: "Q3d/ZO1j4yxn6Fl4mER0oldJmYlbMLW1IFonNTDA/rYzOAvVihiq5T3FwQpK2Yzvujg4aXa3nj3bbyYMpDObcxiovDreirZ0KckOgMyUawwNkAAEp2QNsWQCW6LhU1rbCwj85PgSDABbcenoJ7WOP5yv7J+gOsawMElMdnEQgc1MXVTX5qCKBxvm5SCVh6gdIbbs3HfBQWR1nNJU7K4x5oGDX6yAtyj28ja8OCDX/qSVjXem6jGKoOnFm6h11Uc5QEEpqSU8NJFJoOUqQo4zhDcHjVCS/hKKp9GsYolNaotDqkKAFk7XPLQybmlx/TLDUprLHuXLL1lZpm9LnSFyhcWrwQzwytlFUpQM5/quv74IU/6wvSCUVdRKPi4wFdV374PruXyzmTfwtfzrQwNBHOG4BhqF1y/dyW5oVesR3W5gD/2oSmutk6OeR32XSZpRH4iJLi9KKlELXwivhkuZ4GSmU09/cMlrs6BXxazWcdKG58kyKf1v0XgGGraAInCOD1FxA3iWRiKVQYcNUAPIdNqXgP1WpfSYKPcoOGv2ONi2+Nmz1FK9wn8hH1T41xFzmJt21jw9csPldRTT7NygDRffnHqSuEkv9z5K2tSX4IpgwiDbh1CSscaEWIJqGVLp2bUkSpBa/ag+e7wqFyPab3P8NNJPwRQv5QAIYgulNHU="
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 addons:
-  apt:
-  sources:
-    - ubuntu-toolchain-r-test
-  packages:
-    - gcc-6
-    - g++-6
   coverity_scan:
     project:
       name: "samuelfpereira/travisCoverity"
       description: "test coverity"
     notification_email: a81408@alunos.uminho.pt
     build_command_prepend:
-    build_command: gcc -o main main.c
+    build_command: make
     branch_pattern: cov
+  script:
+    - gcc -o main main.c
