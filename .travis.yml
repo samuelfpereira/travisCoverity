@@ -19,4 +19,4 @@ addons:
     build_command: make
     branch_pattern: coverity_scan
 script:
-  -gcc main.c -o main
+  - gcc main.c -o main
