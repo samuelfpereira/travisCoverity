@@ -11,17 +11,17 @@ env:
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 addons:
-  #apt:
+  apt:
   sources:
     - ubuntu-toolchain-r-test
   packages:
     - gcc-6
-  #  - g++-6
+    - g++-6
   coverity_scan:
     project:
     name: "samuelfpereira/travisCoverity"
     description: "test coverity"
-    #notification_email: a81408@alunos.uminho.pt
+    notification_email: a81408@alunos.uminho.pt
     build_command_prepend:
     build_command: gcc -o main main.c
     branch_pattern: cov
