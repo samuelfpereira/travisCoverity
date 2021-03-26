@@ -13,10 +13,8 @@ addons:
   coverity_scan:
     project:
       name: "samuelfpereira/travisCoverity"
-      description: "<Your project description here>"
+      description: "coverity"
     notification_email: pereiracltd@gmail.com
-    build_command_prepend: "<Your build preprocessing command here>"
-    build_command: "<Your build command here>"
+    build_command_prepend:
+    build_command: "gcc -o main main.c"
     branch_pattern: coverity_scan
-  
-  script: gcc -o main main.c
