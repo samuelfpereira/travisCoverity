@@ -1,4 +1,4 @@
-language: C
+language: c
 os: Linux
 compiler: gcc
 
@@ -11,7 +11,7 @@ addons:
   coverity_scan:
     project:
       name: "samuelfpereira/travisCoverity"
-      description: "test coverity"
+      description: "coverity"
     notification_email: a81408@alunos.uminho.pt
     build_command_prepend:
     build_command: make
